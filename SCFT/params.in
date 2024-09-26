@@ -1,0 +1,114 @@
+InputFileVersion = 3 
+
+models { 
+  NumModels = 1 
+  ModelType = MOLECULAR 
+
+  monomers{
+    nspecies = 3
+    kuhnlen  = 0.6 1. 1.  # A B S
+    GaussSmearWidth = 0.0 0.0 0.0 # P S N
+  }
+
+  chains { 
+    NChains = 2 
+    PolymerReferenceN = 1 
+
+    chain1 { 
+      Label = AB 
+      Architecture = linear 
+      Statistics = DGC 
+      Nbeads = 150 
+      NBlocks = 2
+      BlockSpecies = 1 2
+      NPerBlock = 75 75 
+    } 
+
+    chain2 {
+      Label = S 
+      Architecture = point 
+      Species = 3
+    }
+  } 
+
+  model1 { 
+    cell { 
+      Dim = 1 
+      CellScaling = 10.0 
+      CellLengths = 10.0 
+      CellAngles = 90 
+      NPW = 128  
+    } 
+
+    interactions { 
+      chiN12 = 0.1326 
+      chiN13 = 0.632
+      chiN23 = 0.369
+      ApplyCompressibilityConstraint = true 
+    } 
+
+    composition { 
+      Ensemble = canonical 
+      ChainVolFrac = 0.8
+    } 
+
+    operators { 
+      CalcHamiltonian = true 
+      CalcStressTensor = false 
+      CalcPressure = true 
+      CalcStructureFactor = false 
+      CalcDensityOperator = false 
+      IncludeIdealGasTerms = true 
+
+      CalcOrientationCorrelator = false 
+      OrientationCorr_SpatialAverageRange = 0.25 
+    } 
+
+    initfields { 
+      ReadInputFields = false 
+      InputFieldsFile = fields0_k.bin 
+
+      initfield1 { 
+        inittype = urng 
+      } 
+      initfield2 { 
+        inittype = urng 
+      } 
+      initfield3 { 
+        inittype = urng 
+      } 
+    } 
+  } 
+} 
+
+
+simulation { 
+  JobType = SCFT 
+  FieldUpdater = ETD 
+  TimeStepDT = 0.01 
+  LambdaForceScale = 1.0 1.0 #probs could be retuned to be faster 
+  LambdaStressScale = 100.0
+  NumTimeStepsPerBlock = 1000 
+  NumBlocks = 100 # fewer blocks rpobs needed
+  RandomSeed = 0 
+  SCFTForceStoppingTol = 1e-06 
+  SCFTStressStoppingTol = 1e-06 
+  VariableCell = True 
+  CellUpdater = Broyden 
+
+  IO { 
+    KeepDensityHistory = false 
+    KeepFieldHistory = false 
+    DensityOutputByChain = false 
+    OutputFormattedFields = false 
+    OutputFields = HFields 
+    FieldOutputSpace = kspace 
+  } 
+}
+
+parallel { 
+  CUDA_SelectDevice = 0 
+  CUDA_ThreadBlockSize = 64 
+
+  OpenMP_nthreads = 4
+}
