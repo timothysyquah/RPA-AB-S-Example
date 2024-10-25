@@ -1,0 +1,161 @@
+InputFileVersion = 3 
+
+models {
+  NumModels = 2
+  ModelType = Polymer 
+
+  monomers { 
+    NSpecies = 3 
+    kuhnlen = 1.4 1. 1. 
+  }
+
+  chains { 
+    NChains = 2 
+    PolymerReferenceN = 1 
+    chain1 {
+      Label = AB 
+      Architecture = linear 
+      Statistics = DGC 
+      Nbeads = 147 
+      NBlocks = 2
+      BlockSpecies = 1 2
+      NPerBlock = 60 87 
+    }
+    chain2 {
+      Label = S 
+      Architecture = point 
+      Species = 3
+    }
+  }
+
+
+  model1 {
+    cell {
+      Dim = 3 
+      CellScaling = 72.734652674
+      CellLengths = 1.0 1.0 1.0 
+      CellAngles = 90 90 90 
+      NPW = 32 32 32
+      SpaceGroupName = Im-3m 
+      Symmetrize = on 
+    }
+
+    interactions {
+      chiN12 = 0.1326 
+      chiN13 = 0.632
+      chiN23 = 0.369
+      ApplyCompressibilityConstraint = true 
+    }
+
+    composition {
+      Ensemble = canonical 
+      ChainVolFrac = 0.6 
+      
+    } 
+
+    operators {
+      CalcHamiltonian = true 
+      CalcStressTensor = True 
+      CalcPressure = true 
+      CalcStructureFactor = false 
+      CalcDensityOperator = false 
+      IncludeIdealGasTerms = true 
+    }
+
+    initfields {
+      ReadInputFields = True 
+      InputFieldsFile = ./fields.in
+
+      initfield1 {
+        inittype = urng 
+      }
+      initfield2 {
+        inittype = urng 
+      }
+      initfield3 {
+        inittype = urng
+      }
+    }
+  }
+    model2 {
+    cell {
+      Dim = 1
+      CellScaling = 1.0
+      CellLengths = 1.0 
+      NPW = 1.0
+    }
+
+    interactions {
+      chiN12 = 0.1326 
+      chiN13 = 0.632
+      chiN23 = 0.369
+      ApplyCompressibilityConstraint = true 
+    }
+
+    composition {
+      Ensemble = canonical 
+      ChainVolFrac = 0.6 
+      
+    } 
+
+    operators {
+      CalcHamiltonian = true 
+      CalcStressTensor = True 
+      CalcPressure = true 
+      CalcStructureFactor = false 
+      CalcDensityOperator = false 
+      IncludeIdealGasTerms = true 
+    }
+
+    initfields {
+      ReadInputFields = False 
+      InputFieldsFile = fields0_k.bin 
+
+      initfield1 {
+        inittype = urng 
+      }
+      initfield2 {
+        inittype = urng 
+      }
+      initfield3 {
+        inittype = urng
+      }
+    }
+  }
+}
+
+
+
+simulation {
+  JobType = SCFT 
+  FieldUpdater = ETD 
+  TimeStepDT = 0.01 
+  LambdaForceScale = 1.0 1.0 
+  LambdaStressScale = 100.0
+
+  NumTimeStepsPerBlock = 500 
+  NumBlocks = 36000 
+
+  RandomSeed = 0 
+
+  SCFTForceStoppingTol = 1e-06 
+  SCFTStressStoppingTol = 1e-06 
+
+  VariableCell = True 
+  CellUpdater = Broyden 
+
+  IO {
+    KeepDensityHistory   = false
+    KeepFieldHistory     = false
+    DensityOutputByChain = false
+    OutputFields         = true
+    FieldOutputSpace     = both  # rspace, kspace or both
+  }
+}
+
+parallel {
+  CUDA_selectdevice = 0
+  CUDA_threadblocksize = 64
+
+  OpenMP_nthreads = 1
+}

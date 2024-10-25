@@ -1,0 +1,781 @@
+********************************************************************************
+Execution started at:  Friday, October 25, 2024, 10:14:48
+--------------------------------------------------------------------------------
+Single-node execution
+ - Execution host: node200
+ - Single thread execution
+--------------------------------------------------------------------------------
+
+********************************************************************************
+*                  PolyFTS: Polymer Field Theoretic Simulation                 *
+*                                                                              *
+*      PolyFTS version:                                                        *
+*          - Git branch: master                                                *
+*          - SHA1 hash:  v2.1.3-126 93e3aabbe0                                 *
+*                                                                              *
+*      Build information:                                                      *
+*          - Floating-point precision: double                                  *
+*          - Parallel: CUDA GPU                                                *
+*          - DEBUG checks: OFF                                                 *
+*          - Built on: Oct 24 2024 at 19:19:15                                 *
+********************************************************************************
+
+Initializing CUDA GPU paralellism
+
+Initializing GPU computation
+ - Selecting CUDA device id    = 0
+ - GPU Device ID               = 0
+ - GPU Name                    = NVIDIA A40
+ - GPU Device Memory Size (GiB)= 44.4282
+ - GPU Number of SMPs          = 84
+ - GPU Compute Mode            = 0
+ - GPU kernels nthreads/block  = 64
+ - GPU total number of threads = 32768
+
+Random number seed                = -213830244
+
+--------------------------------------------------------------------------------
+                       Building simulation model object(s)
+--------------------------------------------------------------------------------[0m
+
+ * A simulation cell has been initialized in 3 dimensions
+   - Real-space cell: 
+      a_1 = ( 72.7347, 0.0000, 0.0000) Rg
+      a_2 = ( 0.0000, 72.7347, 0.0000) Rg
+      a_3 = ( 0.0000, 0.0000, 72.7347) Rg
+   - Real-space cell volume = 384790.2932 Rg^3
+
+   - Reciprocal-space cell:
+      b_1 = ( 0.0864, 0.0000, 0.0000) Rg^{-1}
+      b_2 = ( 0.0000, 0.0864, 0.0000) Rg^{-1}
+      b_3 = ( 0.0000, 0.0000, 0.0864) Rg^{-1}
+   - Reciprocal-space cell volume = 0.0006 Rg^{-3}
+
+ * Spatial grid layout initialization:
+   - Real-space collocation mesh = ( 32, 32, 32) 
+   - Total # collocation points  = 32768
+
+ * Initializing Symmetrizer
+   - Space group name    = Im-3m
+   - Space group #       = 229
+   - # Symmetry Ops      = 96
+   - Centrosymmetric?    0
+   - Center to Primitive = 0
+   - Lattice system      = Cubic
+   - Number of stars     = 489
+   - Sum of star sizes   = 32768
+  Simulation cell update: a_1 = ( 72.7347, 0.0000, 0.0000) Rg
+                          a_2 = ( 0.0000, 72.7347, 0.0000) Rg
+                          a_3 = ( 0.0000, 0.0000, 72.7347) Rg
+  New cell volume             = 384790.2932 Rg^3
+
+ * Model Initialization:
+   - Unified molecular field theory
+
+   - Statistical ensemble:         CANONICAL
+   - Compressibility constraint:   INCOMPRESSIBLE
+   - Molecule density, C=Rg^3/Nv0: 1.00000
+
+   - Particle Properties:
+     + Number of species                  : 3
+     + Species Gaussian smear width       : 0.00000 0.00000 0.00000 
+     + Species statistical segment length : 1.40000 1.00000 1.00000 
+
+   - Pair Interactions:
+     + chiN matrix:
+               ( +0.00000 +0.13260 +0.63200 )
+               ( +0.13260 +0.00000 +0.36900 )
+               ( +0.63200 +0.36900 +0.00000 )
+     + Excluded volume matrix:   
+               ( +0.00000 +0.00000 +0.00000 )
+               ( +0.00000 +0.00000 +0.00000 )
+               ( +0.00000 +0.00000 +0.00000 )
+   - Finding normal modes of pair-interaction matrix:
+     + Reduced interaction matrix (rho_+ eliminated): 
+               ( -1.26400 -0.86840 )
+               ( -0.86840 -0.73800 )
+     + Eigenvalues and eigenvectors:
+      -1.90835 ->  (  0.80307   0.59588 )
+      -0.09365 ->  (  0.59588  -0.80307 )
+     + beta Uref / V  = 0.17303
+   - LINEAR PART of HS field to species field transformation matrix, A_{ij}:
+               ( +0.80307 +0.59588 +1.00000 )
+               ( +0.59588 -0.80307 +1.00000 )
+               ( +0.00000 +0.00000 +1.00000 )
+   - Species field to HS field transformation matrix, Ainv_{ij}:
+               ( +0.80307 +0.59588 -1.39895 )
+               ( +0.59588 -0.80307 +0.20719 )
+               ( +0.00000 +0.00000 +1.00000 )
+
+   - List of Model fields:
+     + HS field 0      :   Nw_1 ; Not Wick rotated
+     + HS field 1      :   Nw_2 ; Not Wick rotated
+     + HS field 2      :  iNw_+ ; Wick rotated
+     + Species field 0 :   Nw_A
+     + Species field 1 :   Nw_B
+     + Species field 2 :   Nw_C
+
+ * Reading H[{w}] fields from  <--- ./fields.in
+
+ * Creating all discrete-chain linker objects
+   - Creating HARMONIC BOND linker with average bond length = 1.40000 Rg
+   - Creating HARMONIC BOND linker with average bond length = 1.00000 Rg
+   - Creating HARMONIC BOND linker with average bond length = 1.00000 Rg
+
+ * Creating all chain propagator objects
+   Reference N [used by discrete beads] = 1.00000
+
+   Initializing propagator for a discrete linear-chain polymer
+   - Molecule label                = AB
+   - Number of beads             N = 147
+   - Number of blocks,          Nb = 2
+   - Species of blocks,        S_i = 1 ; 2
+   - Number of beads per block     = 60 ; 87
+   - Bead species map              = 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+                                     1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+                                     1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2
+   - Linker map                    = 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+                                     1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+                                     1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2
+   - Polymer chain is NOT SYMMETRIC
+   - Calculation of full stress tensor ENABLED
+   - ESTIMATED MEMORY PER NODE     = 75.50000 MB
+   - Species volfrac on molecule   = 0.40816 ; 0.59184 ; 0.00000
+   Component volume fraction       = 0.60000
+   Coefficient of lnQ              = 0.00408
+
+ * Initializing propagator for small molecule
+   - Molecule label                = S
+   - Species                       = 3
+   - ESTIMATED MEMORY PER NODE     = 1.00000 MB
+   - Species volfrac on molecule   = 0.00000 ; 0.00000 ; 1.00000
+   Component volume fraction       = 0.40000
+   Coefficient of lnQ              = 0.40000
+
+ * Operator ideal terms are included
+ * Creating SCALAR-type     field-theoretic operator: Hamiltonian
+ * Creating SCALAR-type     field-theoretic operator: StressTensor
+ * Creating SCALAR-type     field-theoretic operator: ChemicalPotential
+ * Creating SCALAR-type     field-theoretic operator: CellTensor
+
+--------------------------------------------------------------------------------
+                       Building simulation model object(s)
+--------------------------------------------------------------------------------[0m
+
+ * A simulation cell has been initialized in 1 dimensions
+   - Real-space cell: 
+      a_1 = ( 1.0000) Rg
+   - Real-space cell volume = 1.0000 Rg^1
+
+   - Reciprocal-space cell:
+      b_1 = ( 6.2832) Rg^{-1}
+   - Reciprocal-space cell volume = 6.2832 Rg^{-1}
+
+ * Spatial grid layout initialization:
+   - Real-space collocation mesh = ( 1) 
+   - Total # collocation points  = 1
+
+ * Model Initialization:
+   - Unified molecular field theory
+
+   - Statistical ensemble:         CANONICAL
+   - Compressibility constraint:   INCOMPRESSIBLE
+   - Molecule density, C=Rg^3/Nv0: 1.00000
+
+   - Particle Properties:
+     + Number of species                  : 3
+     + Species Gaussian smear width       : 0.00000 0.00000 0.00000 
+     + Species statistical segment length : 1.40000 1.00000 1.00000 
+
+   - Pair Interactions:
+     + chiN matrix:
+               ( +0.00000 +0.13260 +0.63200 )
+               ( +0.13260 +0.00000 +0.36900 )
+               ( +0.63200 +0.36900 +0.00000 )
+     + Excluded volume matrix:   
+               ( +0.00000 +0.00000 +0.00000 )
+               ( +0.00000 +0.00000 +0.00000 )
+               ( +0.00000 +0.00000 +0.00000 )
+   - Finding normal modes of pair-interaction matrix:
+     + Reduced interaction matrix (rho_+ eliminated): 
+               ( -1.26400 -0.86840 )
+               ( -0.86840 -0.73800 )
+     + Eigenvalues and eigenvectors:
+      -1.90835 ->  (  0.80307   0.59588 )
+      -0.09365 ->  (  0.59588  -0.80307 )
+     + beta Uref / V  = 0.17303
+   - LINEAR PART of HS field to species field transformation matrix, A_{ij}:
+               ( +0.80307 +0.59588 +1.00000 )
+               ( +0.59588 -0.80307 +1.00000 )
+               ( +0.00000 +0.00000 +1.00000 )
+   - Species field to HS field transformation matrix, Ainv_{ij}:
+               ( +0.80307 +0.59588 -1.39895 )
+               ( +0.59588 -0.80307 +0.20719 )
+               ( +0.00000 +0.00000 +1.00000 )
+
+   - List of Model fields:
+     + HS field 0      :   Nw_1 ; Not Wick rotated
+     + HS field 1      :   Nw_2 ; Not Wick rotated
+     + HS field 2      :  iNw_+ ; Wick rotated
+     + Species field 0 :   Nw_A
+     + Species field 1 :   Nw_B
+     + Species field 2 :   Nw_C
+
+ * Initializing fields:
+   - Field 0 [   Nw_1 ] :  Uniform random noise in all directions... mean = 0.50000; variance = 0.08333
+   - Field 1 [   Nw_2 ] :  Uniform random noise in all directions... mean = 0.50000; variance = 0.08333
+   - Field 2 [  iNw_+ ] :  Uniform random noise in all directions... mean = 0.50000; variance = 0.08333
+
+ * Creating all discrete-chain linker objects
+   - Creating HARMONIC BOND linker with average bond length = 1.40000 Rg
+   - Creating HARMONIC BOND linker with average bond length = 1.00000 Rg
+   - Creating HARMONIC BOND linker with average bond length = 1.00000 Rg
+
+ * Creating all chain propagator objects
+   Reference N [used by discrete beads] = 1.00000
+
+   Initializing propagator for a discrete linear-chain polymer
+   - Molecule label                = AB
+   - Number of beads             N = 147
+   - Number of blocks,          Nb = 2
+   - Species of blocks,        S_i = 1 ; 2
+   - Number of beads per block     = 60 ; 87
+   - Bead species map              = 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+                                     1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+                                     1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2
+   - Linker map                    = 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+                                     1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+                                     1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                                     2 2 2 2 2 2
+   - Polymer chain is NOT SYMMETRIC
+   - Calculation of full stress tensor ENABLED
+   - ESTIMATED MEMORY PER NODE     = 0.00230 MB
+   - Species volfrac on molecule   = 0.40816 ; 0.59184 ; 0.00000
+   Component volume fraction       = 0.60000
+   Coefficient of lnQ              = 0.00408
+
+ * Initializing propagator for small molecule
+   - Molecule label                = S
+   - Species                       = 3
+   - ESTIMATED MEMORY PER NODE     = 0.00003 MB
+   - Species volfrac on molecule   = 0.00000 ; 0.00000 ; 1.00000
+   Component volume fraction       = 0.40000
+   Coefficient of lnQ              = 0.40000
+
+ * Operator ideal terms are included
+ * Creating SCALAR-type     field-theoretic operator: Hamiltonian
+ * Creating SCALAR-type     field-theoretic operator: StressTensor
+ * Creating SCALAR-type     field-theoretic operator: ChemicalPotential
+ * Creating SCALAR-type     field-theoretic operator: CellTensor
+
+--------------------------------------------------------------------------------
+                        Building simulation driver object
+--------------------------------------------------------------------------------[0m
+ * Simulation driver: SCFT/CL field relaxation dynamics
+   - Number of models to evolve     = 2
+   - CL noise                       = OFF
+
+   - Field updater method           = Exponential time differencing (ETD)
+      * Staggered field updates?    = 1
+   - Variable cell is ON
+   - Cell updater method            = Quasi-Newton Broyden's Method
+
+   - Number of time steps per block = 501 (modified to multiple of #fields)
+   - # blocks warmup (=static cell) = 0
+   - # blocks full relax            = 36000
+
+   - SCFT stopping if FORCES   <= 1.00000e-06
+   - SCFT stopping if all STRESSES <= 1.00000e-06
+
+
+   - Time-step size, delta t        = 0.01000
+   - Force scale, lambda            = 1.00000; 1.00000; 1.00000
+
+   - Symmetrization of fields/cell (per model):
+     Model 1 : ON (every block)
+     Model 2 : OFF
+
+--------------------------------------------------------------------------------
+                             Starting the simulation
+--------------------------------------------------------------------------------[0m
+
+INITIAL CONFIGURATION:
+  ---------------- MODEL #1 -----------------
+  Action Functional, H/V      = (-6.6753141707e-01,-9.0339142798e-20)
+  Partition Function, Q:      = +1.0726431798e+04 (Re), -2.6474635831e-12 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927926e+00 (Re), -6.8865286036e-19 (Im)   [Component Label = S]
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +2.8815115964e-34 (Im)
+                                +9.3301757613e-02 (Re), -9.6521696659e-35 (Im)
+                                +5.4210108624e-19 (Re), +2.5931063512e-35 (Im)
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  ---------------- MODEL #2 -----------------
+  Action Functional, H/V      = (+7.9390522884e-01,+0.0000000000e+00)
+  Partition Function, Q:      = +6.4344104077e-84 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +3.8418391647e-01 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Integrated exch fields:     = +7.0987484897e-01 (Re), +0.0000000000e+00 (Im)
+                                +5.8847534221e-01 (Re), +0.0000000000e+00 (Im)
+                                +9.5663389190e-01 (Re), +0.0000000000e+00 (Im)
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+
+TIME BLOCK # 1 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 501 total time steps completed
+  Partition Function, Q:      = +1.0726431558e+04 (Re), -4.9395895575e-12 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927929e+00 (Re), -1.6117310486e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), -1.1970576146e-19 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +3.8197972110e-34 (Im)
+                                +9.3301757613e-02 (Re), -1.0822584179e-34 (Im)
+                                +4.7433845046e-19 (Re), -1.9795324868e-35 (Im)
+  Field Errors (L2 norms)     = +1.6634214265e-01 ; +9.5192855431e-08 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  ---------------- MODEL #2 -----------------
+  -- 501 total time steps completed
+  Partition Function, Q:      = +6.8927906798e-11 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.4079560899e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = +2.6574014578e-01 (Re), +0.0000000000e+00 (Im)
+                                +9.3301766528e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +1.6634214265e-01 ; +9.5192855431e-08 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  Cumulative Runtime: 12.93 sec
+
+TIME BLOCK # 2 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 1002 total time steps completed
+  Partition Function, Q:      = +1.0726431357e+04 (Re), -8.2055483780e-12 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927931e+00 (Re), -1.6110131056e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), +5.5357862442e-20 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +1.2892046646e-33 (Im)
+                                +9.3301757613e-02 (Re), +1.0910127449e-34 (Im)
+                                -6.3696877634e-19 (Re), +6.8571728271e-36 (Im)
+  Field Errors (L2 norms)     = +6.9334743787e-02 ; +1.0686516043e-15 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  ---------------- MODEL #2 -----------------
+  -- 1002 total time steps completed
+  Partition Function, Q:      = +7.5914838937e-03 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6261036344e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = +8.0615887060e-02 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +6.9334743787e-02 ; +1.0686516043e-15 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  Cumulative Runtime: 25.84 sec
+
+TIME BLOCK # 3 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 1503 total time steps completed
+  Partition Function, Q:      = +1.0726431189e+04 (Re), -1.0813683373e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927932e+00 (Re), -1.5469841205e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), -8.7784274848e-20 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +2.5000435012e-33 (Im)
+                                +9.3301757613e-02 (Re), +4.6839805348e-34 (Im)
+                                -2.7105054312e-20 (Re), -4.1010059164e-36 (Im)
+  Field Errors (L2 norms)     = +2.8900112861e-02 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  ---------------- MODEL #2 -----------------
+  -- 1503 total time steps completed
+  Partition Function, Q:      = +1.7075177539e+01 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6640043645e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = +3.4523803097e-03 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +2.8900112861e-02 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  Cumulative Runtime: 38.77 sec
+
+TIME BLOCK # 4 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 2004 total time steps completed
+  Partition Function, Q:      = +1.0726431049e+04 (Re), -1.3817625967e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927934e+00 (Re), -1.6807368601e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), -1.3207847452e-19 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +5.0231785112e-34 (Im)
+                                +9.3301757613e-02 (Re), +9.3954777112e-34 (Im)
+                                -3.5236570606e-19 (Re), -6.6239106669e-36 (Im)
+  Field Errors (L2 norms)     = +1.2046147108e-02 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  ---------------- MODEL #2 -----------------
+  -- 2004 total time steps completed
+  Partition Function, Q:      = +4.2614969032e+02 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6705891984e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = -2.8710918089e-02 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +1.2046147108e-02 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  Cumulative Runtime: 51.68 sec
+
+TIME BLOCK # 5 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 2505 total time steps completed
+  Partition Function, Q:      = +1.0726430931e+04 (Re), -1.7253114176e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927935e+00 (Re), -1.3450213519e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), -1.2327945568e-19 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), -1.5626542545e-34 (Im)
+                                +9.3301757613e-02 (Re), +1.5417231284e-33 (Im)
+                                +2.9815559743e-19 (Re), +3.9521589443e-35 (Im)
+  Field Errors (L2 norms)     = +5.0210758984e-03 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  ---------------- MODEL #2 -----------------
+  -- 2505 total time steps completed
+  Partition Function, Q:      = +1.6290781150e+03 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6717332407e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = -4.2117226426e-02 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +5.0210758984e-03 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  Cumulative Runtime: 64.63 sec
+
+TIME BLOCK # 6 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 3006 total time steps completed
+  Partition Function, Q:      = +1.0726430832e+04 (Re), -2.0668104836e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927936e+00 (Re), -1.8891829473e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), -7.1002576597e-20 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +2.5983253232e-33 (Im)
+                                +9.3301757613e-02 (Re), +1.3787496877e-33 (Im)
+                                +3.3881317890e-19 (Re), -1.6706713461e-35 (Im)
+  Field Errors (L2 norms)     = +2.0928852148e-03 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  ---------------- MODEL #2 -----------------
+  -- 3006 total time steps completed
+  Partition Function, Q:      = +2.8489804627e+03 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6719320054e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = -4.7705244825e-02 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +2.0928852148e-03 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  Cumulative Runtime: 77.54 sec
+
+TIME BLOCK # 7 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 3507 total time steps completed
+  Partition Function, Q:      = +1.0726430748e+04 (Re), -2.4376824658e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927936e+00 (Re), -1.7894631102e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), +3.2410708179e-20 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +4.5677373051e-33 (Im)
+                                +9.3301757613e-02 (Re), +1.5732956402e-33 (Im)
+                                +2.9815559743e-19 (Re), +3.9255633846e-35 (Im)
+  Field Errors (L2 norms)     = +8.7235656481e-04 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  ---------------- MODEL #2 -----------------
+  -- 3507 total time steps completed
+  Partition Function, Q:      = +3.5964292983e+03 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6719665386e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = -5.0034443053e-02 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +8.7235656481e-04 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  Cumulative Runtime: 90.47 sec
+
+TIME BLOCK # 8 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 4008 total time steps completed
+  Partition Function, Q:      = +1.0726430677e+04 (Re), -2.7867018817e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927937e+00 (Re), -1.6456031450e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), -1.5149925358e-20 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +6.6192923240e-33 (Im)
+                                +9.3301757613e-02 (Re), +9.5361202112e-34 (Im)
+                                +1.3552527156e-19 (Re), +1.3360227981e-35 (Im)
+  Field Errors (L2 norms)     = +3.6361572569e-04 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  ---------------- MODEL #2 -----------------
+  -- 4008 total time steps completed
+  Partition Function, Q:      = +3.9632022773e+03 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6719725383e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = -5.1005299625e-02 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +3.6361572569e-04 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  Cumulative Runtime: 103.38 sec
+
+TIME BLOCK # 9 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 4509 total time steps completed
+  Partition Function, Q:      = +1.0726430617e+04 (Re), -3.1118823563e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927938e+00 (Re), -1.3644137891e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), -7.9729859601e-20 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +5.9335403041e-33 (Im)
+                                +9.3301757613e-02 (Re), +7.4749458606e-34 (Im)
+                                +1.3552527156e-20 (Re), -3.5496990659e-35 (Im)
+  Field Errors (L2 norms)     = +1.5156233277e-04 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  ---------------- MODEL #2 -----------------
+  -- 4509 total time steps completed
+  Partition Function, Q:      = +4.1269148209e+03 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6719735807e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = -5.1409972131e-02 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +1.5156233277e-04 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  Cumulative Runtime: 116.30 sec
+
+TIME BLOCK # 10 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 5010 total time steps completed
+  Partition Function, Q:      = +1.0726430566e+04 (Re), -3.4633102036e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927938e+00 (Re), -2.2227419621e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), +9.6705491322e-21 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +6.9148363826e-33 (Im)
+                                +9.3301757613e-02 (Re), +8.3633195135e-34 (Im)
+                                -5.4210108624e-19 (Re), +2.2927649971e-35 (Im)
+  Field Errors (L2 norms)     = +6.3174222376e-05 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  L2-norm of stress tensor    = +1.7570652497e-07
+  ---------------- MODEL #2 -----------------
+  -- 5010 total time steps completed
+  Partition Function, Q:      = +4.1971345924e+03 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6719737618e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = -5.1578647754e-02 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +6.3174222376e-05 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  L2-norm of stress tensor    = +0.0000000000e+00
+  Cumulative Runtime: 129.21 sec
+
+TIME BLOCK # 11 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 5010 total time steps completed
+  Partition Function, Q:      = +1.0726430566e+04 (Re), -3.4633102036e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927938e+00 (Re), -2.2227419621e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), +9.6705491322e-21 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +5.1818215197e-33 (Im)
+                                +9.3301757613e-02 (Re), +9.8769247774e-34 (Im)
+                                -5.7327189870e-18 (Re), -6.2981020635e-35 (Im)
+  Field Errors (L2 norms)     = +2.6332283885e-05 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  L2-norm of stress tensor    = +1.7570652497e-07
+  ---------------- MODEL #2 -----------------
+  -- 5511 total time steps completed
+  Partition Function, Q:      = +4.2267552418e+03 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6719737933e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = -5.1648955139e-02 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +2.6332283885e-05 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  L2-norm of stress tensor    = +0.0000000000e+00
+  Cumulative Runtime: 131.00 sec
+
+TIME BLOCK # 12 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 5010 total time steps completed
+  Partition Function, Q:      = +1.0726430566e+04 (Re), -3.4633102036e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927938e+00 (Re), -2.2227419621e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), +9.6705491322e-21 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +1.0737323002e-32 (Im)
+                                +9.3301757613e-02 (Re), +9.4893569951e-34 (Im)
+                                -7.9824384949e-18 (Re), -5.7692983112e-34 (Im)
+  Field Errors (L2 norms)     = +1.0975824451e-05 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  L2-norm of stress tensor    = +1.7570652497e-07
+  ---------------- MODEL #2 -----------------
+  -- 6012 total time steps completed
+  Partition Function, Q:      = +4.2391633648e+03 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6719737987e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = -5.1678260668e-02 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +1.0975824451e-05 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  L2-norm of stress tensor    = +0.0000000000e+00
+  Cumulative Runtime: 132.78 sec
+
+TIME BLOCK # 13 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 5010 total time steps completed
+  Partition Function, Q:      = +1.0726430566e+04 (Re), -3.4633102036e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927938e+00 (Re), -2.2227419621e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), +9.6705491322e-21 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +9.7646342251e-33 (Im)
+                                +9.3301757613e-02 (Re), +1.7628942171e-33 (Im)
+                                -9.1750608847e-18 (Re), -6.9919793570e-34 (Im)
+  Field Errors (L2 norms)     = +4.5749439318e-06 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  L2-norm of stress tensor    = +1.7570652497e-07
+  ---------------- MODEL #2 -----------------
+  -- 6513 total time steps completed
+  Partition Function, Q:      = +4.2443460691e+03 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6719737997e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = -5.1690475801e-02 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +4.5749439318e-06 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  L2-norm of stress tensor    = +0.0000000000e+00
+  Cumulative Runtime: 134.57 sec
+
+TIME BLOCK # 14 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 5010 total time steps completed
+  Partition Function, Q:      = +1.0726430566e+04 (Re), -3.4633102036e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927938e+00 (Re), -2.2227419621e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), +9.6705491322e-21 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +5.4790491968e-33 (Im)
+                                +9.3301757613e-02 (Re), +2.4939767215e-33 (Im)
+                                -1.0543866127e-17 (Re), -5.5024687665e-34 (Im)
+  Field Errors (L2 norms)     = +1.9069284564e-06 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  L2-norm of stress tensor    = +1.7570652497e-07
+  ---------------- MODEL #2 -----------------
+  -- 7014 total time steps completed
+  Partition Function, Q:      = +4.2465081948e+03 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6719737999e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = -5.1695567314e-02 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +1.9069284564e-06 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  L2-norm of stress tensor    = +0.0000000000e+00
+  Cumulative Runtime: 136.36 sec
+
+TIME BLOCK # 15 COMPLETED
+  ---------------- MODEL #1 -----------------
+  -- 5010 total time steps completed
+  Partition Function, Q:      = +1.0726430566e+04 (Re), -3.4633102036e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927938e+00 (Re), -2.2227419621e-19 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), +9.6705491322e-21 (Im)
+  Integrated exch fields:     = -5.1699206404e-02 (Re), +1.1854544664e-32 (Im)
+                                +9.3301757613e-02 (Re), +2.6509972092e-33 (Im)
+                                -1.0747154035e-17 (Re), +2.3985280281e-34 (Im)
+  Field Errors (L2 norms)     = +9.9572764129e-07 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  L2-norm of stress tensor    = +1.7570652497e-07
+  ---------------- MODEL #2 -----------------
+  -- 7515 total time steps completed
+  Partition Function, Q:      = +4.2472468726e+03 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Intensive Hamiltonian:      = -6.6719737999e-01 (Re), +0.0000000000e+00 (Im)
+  Integrated exch fields:     = -5.1697306206e-02 (Re), +0.0000000000e+00 (Im)
+                                +9.3301757613e-02 (Re), +0.0000000000e+00 (Im)
+                                +0.0000000000e+00 (Re), +0.0000000000e+00 (Im)
+  Field Errors (L2 norms)     = +9.9572764129e-07 ; +1.1687550165e-16 ; +0.0000000000e+00
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  L2-norm of stress tensor    = +0.0000000000e+00
+
+SCFT Converged in 12525 time steps (total)
+  - Force tolerance was 1.0000000000e-06
+  - Stress tolerance was 1.0000000000e-06
+  ------ Model #1: ------
+  Writing 3 unformatted fields to files   --->   model1_density.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model1_fields.bin 
+  Intensive Hamiltonian:      = -6.6753141707e-01 (Re), -2.7058322743e-19 (Im)
+  Partition Function, Q:      = +1.0726430566e+04 (Re), -4.5004224142e-11 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0017927938e+00 (Re), -2.0339654533e-18 (Im)   [Component Label = S]
+  Final simulation cell:        a_1 = ( 7.2735e+01, 0.0000e+00, 0.0000e+00) Rg
+                                a_2 = ( 0.0000e+00, 7.2735e+01, 0.0000e+00) Rg
+                                a_3 = ( 0.0000e+00, 0.0000e+00, 7.2735e+01) Rg
+  ------ Model #2: ------
+  Writing 3 unformatted fields to files   --->   model2_density.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields_k.bin 
+  Writing 3 unformatted fields to files   --->   model2_fields.bin 
+  Intensive Hamiltonian:      = -6.6719737999e-01 (Re), +0.0000000000e+00 (Im)
+  Partition Function, Q:      = +4.2472468726e+03 (Re), +0.0000000000e+00 (Im)   [Component Label = AB]
+  Partition Function, Q:      = +1.0000000000e+00 (Re), +0.0000000000e+00 (Im)   [Component Label = S]
+  Final simulation cell:        a_1 = ( 1.0000e+00) Rg
+
+TOTAL Runtime: 138.52 sec
